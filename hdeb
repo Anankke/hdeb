@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "Usage: hdeb <deb_url> [-k]"
+  exit 1
+fi
+
+deb_url=$1
+deb_file=$(basename "$deb_url")
+
+if [ $# -eq 2 ] && [ "$2" = "-k" ]; then
+  curl_options="-k"
+else
+  curl_options=""
+fi
+
+curl -sSO "$curl_options" "$deb_url" &&
+  dpkg --install "$deb_file" &&
+  rm "$deb_file"
