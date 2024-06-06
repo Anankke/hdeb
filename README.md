@@ -41,6 +41,14 @@ hdeb 'https://example.com/package_1.0_amd64.deb' -k
 
 ## Installation
 
+### One-Line Installation
+
+```bash
+curl -sSL https://github.com/Anankke/hdeb/raw/master/hdeb -o /tmp/hdeb && sudo mv /tmp/hdeb /usr/local/bin/hdeb && sudo chmod +x /usr/local/bin/hdeb
+```
+
+### Manual Installation
+
 1. Download the `hdeb` script.
 2. Make the script executable using the following command:
 
